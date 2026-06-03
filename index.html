@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ascend - Plataforma de Crecimiento Empresarial</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Chat Section */
+        .chat-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .chat-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .chat-container {
+            max-width: 800px;
+            margin: 0 auto;
+            height: 600px;
+            background: white;
+            border-radius: 20px;
+            border: 3px solid #c0c0c0;
+            box-shadow: 0 0 30px rgba(192, 192, 192, 0.6),
+                        0 0 60px rgba(192, 192, 192, 0.4),
+                        inset 0 0 20px rgba(192, 192, 192, 0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 30px rgba(192, 192, 192, 0.6),
+                            0 0 60px rgba(192, 192, 192, 0.4),
+                            inset 0 0 20px rgba(192, 192, 192, 0.1);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(192, 192, 192, 0.8),
+                            0 0 80px rgba(192, 192, 192, 0.6),
+                            inset 0 0 30px rgba(192, 192, 192, 0.2);
+            }
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, #e0e0e0 0%, #c0c0c0 100%);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #a8a8a8;
+        }
+
+        .chat-header h1 {
+            color: #333;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .chat-messages::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .chat-messages::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: #c0c0c0;
+            border-radius: 10px;
+        }
+
+        .message {
+            display: flex;
+            gap: 10px;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.user {
+            justify-content: flex-end;
+        }
+
+        .message-content {
+            max-width: 70%;
+            padding: 12px 18px;
+            border-radius: 18px;
+            word-wrap: break-word;
+            border: 2px solid #c0c0c0;
+        }
+
+        .message.user .message-content {
+            background: linear-gradient(135deg, #e8e8e8 0%, #d0d0d0 100%);
+            color: #333;
+            border-top-right-radius: 4px;
+            box-shadow: 0 2px 10px rgba(192, 192, 192, 0.3);
+        }
+
+        .message.bot .message-content {
+            background: white;
+            color: #333;
+            border-top-left-radius: 4px;
+            box-shadow: 0 2px 10px rgba(192, 192, 192, 0.3);
+        }
+
+        .chat-input-container {
+            padding: 20px;
+            background: white;
+            border-top: 2px solid #c0c0c0;
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid #c0c0c0;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .chat-input:focus {
+            border-color: #a8a8a8;
+            box-shadow: 0 0 15px rgba(192, 192, 192, 0.5);
+        }
+
+        .send-button {
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #d0d0d0 0%, #c0c0c0 100%);
+            color: #333;
+            border: 2px solid #a8a8a8;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(192, 192, 192, 0.3);
+        }
+
+        .send-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(192, 192, 192, 0.6),
+                        0 6px 20px rgba(192, 192, 192, 0.4);
+        }
+
+        .send-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .typing-indicator {
+            display: flex;
+            gap: 5px;
+            padding: 12px 18px;
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background: #c0c0c0;
+            border-radius: 50%;
+            animation: typing 1.4s infinite;
+        }
+
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+            0%, 60%, 100% {
+                transform: translateY(0);
+            }
+            30% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .chat-container {
+                height: 500px;
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">🚀 Ascend</a>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#características">Características</a></li>
+                <li><a href="#estadísticas">Estadísticas</a></li>
+                <li><a href="#chat">Chat con Laia</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero">
+            <div class="container">
+                <h1>Impulsa tu Negocio al Siguiente Nivel</h1>
+                <p>Ascend es la plataforma integral que transforma la manera en que las empresas crecen, se optimizan y alcanzan el éxito.</p>
+                <a href="#características" class="btn">Descubre Más</a>
+            </div>
+        </section>
+
+        <section id="características" class="features">
+            <div class="container">
+                <h2>¿Por qué elegir Ascend?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>Analytics Avanzado</h3>
+                        <p>Obtén insights profundos sobre tu negocio con nuestro sistema de analíticas en tiempo real que te ayuda a tomar decisiones inteligentes.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Automatización Inteligente</h3>
+                        <p>Optimiza tus procesos con automatizaciones que ahorran tiempo y aumentan la eficiencia de tu equipo de trabajo.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Estrategias Personalizadas</h3>
+                        <p>Recibe recomendaciones y estrategias adaptadas específicamente a tu industria y objetivos de crecimiento.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔒</div>
+                        <h3>Seguridad Empresarial</h3>
+                        <p>Protección de nivel empresarial con cifrado avanzado y cumplimiento de estándares internacionales de seguridad.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📱</div>
+                        <h3>Acceso Multi-Plataforma</h3>
+                        <p>Accede a Ascend desde cualquier dispositivo - web, móvil o tablet - con sincronización en tiempo real.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🤝</div>
+                        <h3>Soporte 24/7</h3>
+                        <p>Nuestro equipo de expertos está disponible las 24 horas para ayudarte a maximizar el valor de la plataforma.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="estadísticas" class="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>10,000+</h3>
+                        <p>Empresas Confiando en Ascend</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>500%</h3>
+                        <p>Promedio de Crecimiento</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>99.9%</h3>
+                        <p>Tiempo de Actividad</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>50+</h3>
+                        <p>Países Atendidos</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="chat" class="chat-section">
+            <div class="container">
+                <h2>💬 Habla con Laia, tu Experta en Ascend</h2>
+                
+                <div class="chat-container">
+                    <div class="chat-header">
+                        <h1>💼 Chat con Laia - Ascend</h1>
+                    </div>
+                    
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message bot">
+                            <div class="message-content">
+                                ¡Hola! Soy Laia, tu experta en Ascend. Estoy aquí para ayudarte a conocer nuestra plataforma y cómo puede beneficiar a tu negocio. ¿En qué puedo ayudarte?
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input-container">
+                        <input 
+                            type="text" 
+                            class="chat-input" 
+                            id="messageInput" 
+                            placeholder="Escribe tu mensaje aquí..."
+                            autocomplete="off"
+                        >
+                        <button class="send-button" id="sendButton">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Ascend. Todos los derechos reservados. | Transformando empresas, impulsando el futuro.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Chat functionality - Para GitHub Pages (demo sin backend)
+        const chatMessages = document.getElementById('chatMessages');
+        const messageInput = document.getElementById('messageInput');
+        const sendButton = document.getElementById('sendButton');
+
+        function addMessage(content, isUser = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user' : 'bot'}`;
+            
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'message-content';
+            contentDiv.textContent = content;
+            
+            messageDiv.appendChild(contentDiv);
+            chatMessages.appendChild(messageDiv);
+            
+            // Scroll al final
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function showTypingIndicator() {
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message bot';
+            typingDiv.id = 'typingIndicator';
+            
+            const indicatorDiv = document.createElement('div');
+            indicatorDiv.className = 'typing-indicator';
+            indicatorDiv.innerHTML = `
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            `;
+            
+            typingDiv.appendChild(indicatorDiv);
+            chatMessages.appendChild(typingDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function removeTypingIndicator() {
+            const indicator = document.getElementById('typingIndicator');
+            if (indicator) {
+                indicator.remove();
+            }
+        }
+
+        // Respuestas predefinidas de Laia para la demo
+        const laiaResponses = [
+            "¡Excelente pregunta! Ascend está diseñado específicamente para impulsar el crecimiento de tu empresa. Nuestra plataforma de analytics avanzado te ayuda a tomar decisiones más inteligentes. ¿Te gustaría saber más sobre alguna característica en particular?",
+            "Como experta en Ascend, puedo asegurarte que nuestra plataforma ha ayudado a más de 10,000 empresas a crecer un promedio del 500%. Nuestras automatizaciones inteligentes son perfectas para optimizar procesos. ¿Qué tipo de negocio tienes?",
+            "Ascend ofrece analytics avanzado, automatización inteligente y estrategias personalizadas para cada industria. Con acceso 24/7 desde cualquier dispositivo y soporte completo. ¿Cuál de estas áreas te interesa más para tu empresa?",
+            "¡Me alegra que preguntes sobre Ascend! Nuestra plataforma es perfecta para empresas que buscan optimizar sus procesos y acelerar su crecimiento. Tenemos presencia en más de 50 países. ¿En qué industria te encuentras?",
+            "Con Ascend, tendrás seguridad empresarial de nivel mundial, 99.9% de tiempo de actividad y soporte de nuestro equipo de expertos las 24 horas. ¿Te gustaría una demostración personalizada de nuestras funcionalidades?",
+            "Ascend se enfoca exclusivamente en el crecimiento empresarial sostenible. Nuestras estrategias personalizadas se adaptan a tu industria específica y objetivos de crecimiento. ¿Cuáles son tus principales desafíos empresariales actualmente?",
+            "Una de las grandes ventajas de Ascend es nuestro sistema multi-plataforma con sincronización en tiempo real. Puedes acceder desde web, móvil o tablet sin perder información. ¿Trabajas frecuentemente desde diferentes dispositivos?"
+        ];
+
+        async function sendMessage() {
+            const message = messageInput.value.trim();
+            
+            if (!message) return;
+            
+            // Añadir mensaje del usuario
+            addMessage(message, true);
+            messageInput.value = '';
+            
+            // Deshabilitar input y botón
+            messageInput.disabled = true;
+            sendButton.disabled = true;
+            
+            // Mostrar indicador de escritura
+            showTypingIndicator();
+            
+            // Simular respuesta de Laia después de 1.5-2.5 segundos
+            setTimeout(() => {
+                removeTypingIndicator();
+                
+                // Respuesta aleatoria de Laia enfocada en Ascend
+                const randomResponse = laiaResponses[Math.floor(Math.random() * laiaResponses.length)];
+                addMessage(randomResponse);
+                
+                // Rehabilitar input y botón
+                messageInput.disabled = false;
+                sendButton.disabled = false;
+                messageInput.focus();
+            }, Math.random() * 1000 + 1500);
+        }
+
+        // Event listeners para el chat
+        sendButton.addEventListener('click', sendMessage);
+        
+        messageInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Smooth scrolling para los enlaces de navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animación de números en las estadísticas
+        function animateStats() {
+            const stats = document.querySelectorAll('.stat-item h3');
+            stats.forEach(stat => {
+                const finalValue = stat.textContent;
+                const numericValue = parseInt(finalValue.replace(/[^\d]/g, ''));
+                let currentValue = 0;
+                const increment = numericValue / 50;
+                
+                const timer = setInterval(() => {
+                    currentValue += increment;
+                    if (currentValue >= numericValue) {
+                        stat.textContent = finalValue;
+                        clearInterval(timer);
+                    } else {
+                        const displayValue = Math.floor(currentValue);
+                        if (finalValue.includes('+')) {
+                            stat.textContent = displayValue.toLocaleString() + '+';
+                        } else if (finalValue.includes('%')) {
+                            stat.textContent = displayValue + '%';
+                        } else {
+                            stat.textContent = displayValue.toLocaleString();
+                        }
+                    }
+                }, 50);
+            });
+        }
+
+        // Activar animación cuando la sección de stats sea visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStats();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Focus automático al input del chat
+        messageInput.focus();
+    </script>
+</body>
+</html>
