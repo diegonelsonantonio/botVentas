@@ -1,0 +1,130 @@
+# ===========================
+# ARCHIVOS SENSIBLES Y CLAVES
+# ===========================
+.env
+*.env
+.env.local
+.env.production
+.env.development
+config.json
+secrets.json
+
+# ===========================
+# BACKEND PYTHON - FLASK
+# ===========================
+app.py
+*.py
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ===========================
+# ENTORNOS VIRTUALES PYTHON
+# ===========================
+venv/
+env/
+ENV/
+.venv/
+.ENV/
+myenv/
+virtualenv/
+
+# ===========================
+# DEPENDENCIAS Y PACKAGES
+# ===========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# ===========================
+# LOGS Y DEBUGGING
+# ===========================
+*.log
+logs/
+.npm
+.yarn-integrity
+
+# ===========================
+# BASES DE DATOS
+# ===========================
+*.sqlite
+*.sqlite3
+*.db
+database.db
+
+# ===========================
+# ARCHIVOS TEMPORALES
+# ===========================
+.tmp/
+.temp/
+*.tmp
+*.temp
+.cache/
+.pytest_cache/
+
+# ===========================
+# IDEs Y EDITORES
+# ===========================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ===========================
+# SISTEMA OPERATIVO
+# ===========================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# ===========================
+# TESTING
+# ===========================
+.coverage
+.pytest_cache/
+.tox/
+.nox/
+coverage.xml
+*.cover
+.hypothesis/
+
+# ===========================
+# SOLO MANTENER PARA GITHUB PAGES
+# ===========================
+# El único archivo que debe subirse es:
+# - index.html (página web completa)
+# - README.md (opcional)
+# - LICENSE (opcional)
+
+# ===========================
+# ARCHIVOS ESPECÍFICOS DEL PROYECTO
+# ===========================
+ascend.html
+requirements.txt
